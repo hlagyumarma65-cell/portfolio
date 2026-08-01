@@ -33,11 +33,11 @@ const BOOT_LINES = [
 function createParticles(): Particle[] {
   return Array.from({ length: 36 }, (_, i) => ({
     id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 2 + 1,
-    duration: Math.random() * 6 + 6,
-    delay: Math.random() * 4,
+    x: (i * 13) % 100,
+    y: (i * 17) % 100,
+    size: 2 + (i % 3),
+    duration: 6 + (i % 5),
+    delay: (i % 4) * 0.5,
   }));
 }
 
@@ -48,7 +48,7 @@ export default function Loader({
   const [progressDone, setProgressDone] = useState(false);
   const [isReady, setIsReady] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
-  const [particles] = useState<Particle[]>(createParticles);
+  const [particles] = useState<Particle[]>(() => createParticles());
 
   const bootLines = useMemo(
     () => [...BOOT_LINES, `> Welcome ${userName}`],

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Cursor from "@/components/animations/cursor/Cursor";
-import Loader from "@/components/loader/Loader";
 
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -32,11 +31,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-[#020617] text-white">
         <Cursor />
-
-        <Loader>
-          {children}
-        </Loader>
-
+        {children}
       </body>
     </html>
   );

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import Loader from "@/components/Loader";
+import Loader from "@/components/loader/Loader";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
