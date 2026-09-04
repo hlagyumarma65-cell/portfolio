@@ -10,6 +10,8 @@ import {
   FaFacebook,
   FaLinkedin,
 } from "react-icons/fa";
+import AIRoom from "@/components/ai-room/AIRoom";
+import HeroTerminal from "@/components/terminal/HeroTerminal";
 
 export default function Hero() {
   return (
@@ -17,6 +19,9 @@ export default function Hero() {
       id="home"
       className="hero-bg relative min-h-screen overflow-hidden flex items-center"
     >
+      {/* Background AI Coding Android Workspace */}
+      <AIRoom />
+
       {/* Background Glow */}
       <div className="glow one"></div>
       <div className="glow two"></div>
@@ -185,7 +190,7 @@ export default function Hero() {
 
           </motion.div>
 
-          {/* RIGHT SIDE */}
+          {/* RIGHT SIDE — INTERACTIVE TERMINAL CONSOLE */}
           <motion.div
             initial={{ opacity: 0, x: 70 }}
             animate={{ opacity: 1, x: 0 }}
@@ -194,44 +199,9 @@ export default function Hero() {
               delay: 0.3,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="flex justify-center"
+            className="flex justify-center w-full"
           >
-
-            <div className="relative">
-
-              {/* Glow */}
-              <div className="absolute inset-0 rounded-full bg-cyan-400/20 blur-3xl animate-pulse"></div>
-
-              {/* Floating Image */}
-              <motion.div
-                animate={{
-                  y: [0, -15, 0],
-                  rotate: [0, 1, 0, -1, 0],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                }}
-                whileHover={{
-                  scale: 1.05,
-                  rotate: 2,
-                }}
-                className="relative z-10 h-80 w-80 md:h-[430px] md:w-[430px]"
-              >
-
-                <Image
-                  src="/images/profile.jpeg"
-                  alt="Hla Gyo U Marma"
-                  fill
-                  priority
-                  sizes="(max-width:768px)100vw,430px"
-                  className="rounded-full border-4 border-cyan-400 object-cover shadow-[0_0_45px_rgba(34,211,238,.6)]"
-                />
-
-              </motion.div>
-
-            </div>
-
+            <HeroTerminal />
           </motion.div>
 
         </div>

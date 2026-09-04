@@ -10,6 +10,13 @@
   --color-foreground: var(--foreground);
   --color-cyan-400: rgb(34, 211, 238);
   --color-blue-500: rgb(59, 130, 246);
+
+  /* AI Room palette */
+  --ai-cyan: #22d3ee;
+  --ai-blue: #3b82f6;
+  --ai-dark: #020617;
+  --ai-graphite: #1a1a2e;
+  --ai-matte: #0f0f23;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -25,78 +32,96 @@ body {
   font-family: Inter, Arial, Helvetica, sans-serif;
   overflow-x: hidden;
 }
-/* ---------- Premium Background ---------- */
 
-.hero-bg{
-  background:
-  radial-gradient(circle at 20% 20%,rgba(34,211,238,.18),transparent 35%),
-  radial-gradient(circle at 80% 30%,rgba(59,130,246,.16),transparent 35%),
-  radial-gradient(circle at 50% 80%,rgba(6,182,212,.12),transparent 40%),
-  #020617;
-}
-
-.glow{
-  position:absolute;
-  width:320px;
-  height:320px;
-  border-radius:50%;
-  filter:blur(130px);
-  animation:floatGlow 10s ease-in-out infinite alternate;
-}
-
-.glow.one{
-  background:#22d3ee55;
-  left:-80px;
-  top:50px;
-}
-
-.glow.two{
-  background:#3b82f655;
-  right:-80px;
-  bottom:40px;
-}
-
-@keyframes floatGlow{
-  from{
-    transform:translateY(0) translateX(0);
-  }
-
-  to{
-    transform:translateY(-50px) translateX(40px);
-  }
-}
-
-.hero-image{
-  box-shadow:
-  0 0 30px #22d3ee66,
-  0 0 80px #22d3ee33;
-}
-
-.hero-btn{
-  transition:.35s;
-}
-
-.hero-btn:hover{
-  transform:translateY(-4px) scale(1.04);
-}
 html {
   scroll-behavior: smooth;
 }
-* {
-  cursor: none;
-}
-html,
-body {
-  cursor: none;
+
+/* ---------- Custom Cursor (desktop only) ---------- */
+
+@media (pointer: fine) {
+  * {
+    cursor: none;
+  }
+  html,
+  body {
+    cursor: none;
+  }
+  a,
+  button,
+  input,
+  textarea,
+  select {
+    cursor: none;
+  }
 }
 
-a,
-button,
-input,
-textarea,
-select {
-  cursor: none;
+/* Restore normal cursor on touch devices */
+@media (pointer: coarse) {
+  * {
+    cursor: auto;
+  }
+  html,
+  body {
+    cursor: auto;
+  }
+  a,
+  button {
+    cursor: pointer;
+  }
+  input,
+  textarea,
+  select {
+    cursor: text;
+  }
 }
+
+/* ---------- Premium Background ---------- */
+
+.hero-bg {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(34, 211, 238, 0.18), transparent 35%),
+    radial-gradient(circle at 80% 30%, rgba(59, 130, 246, 0.16), transparent 35%),
+    radial-gradient(circle at 50% 80%, rgba(6, 182, 212, 0.12), transparent 40%),
+    #020617;
+}
+
+.glow {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  filter: blur(130px);
+  animation: floatGlow 10s ease-in-out infinite alternate;
+}
+
+.glow.one {
+  background: #22d3ee55;
+  left: -80px;
+  top: 50px;
+}
+
+.glow.two {
+  background: #3b82f655;
+  right: -80px;
+  bottom: 40px;
+}
+
+@keyframes floatGlow {
+  from {
+    transform: translateY(0) translateX(0);
+  }
+  to {
+    transform: translateY(-50px) translateX(40px);
+  }
+}
+
+.hero-image {
+  box-shadow:
+    0 0 30px #22d3ee66,
+    0 0 80px #22d3ee33;
+}
+
 /* =========================
    Premium Hero Button
 ========================= */
@@ -104,7 +129,7 @@ select {
 .hero-btn {
   position: relative;
   overflow: hidden;
-  transition: all .35s ease;
+  transition: all 0.35s ease;
   transform: translateY(0);
 }
 
@@ -115,9 +140,9 @@ select {
   left: -40%;
   width: 35%;
   height: 320%;
-  background: rgba(255,255,255,.35);
+  background: rgba(255, 255, 255, 0.35);
   transform: rotate(25deg);
-  transition: left .6s ease;
+  transition: left 0.6s ease;
 }
 
 .hero-btn:hover::before {
@@ -127,11 +152,125 @@ select {
 .hero-btn:hover {
   transform: translateY(-6px) scale(1.03);
   box-shadow:
-    0 0 20px rgba(34,211,238,.35),
-    0 0 45px rgba(34,211,238,.25),
-    0 12px 35px rgba(34,211,238,.25);
+    0 0 20px rgba(34, 211, 238, 0.35),
+    0 0 45px rgba(34, 211, 238, 0.25),
+    0 12px 35px rgba(34, 211, 238, 0.25);
 }
 
 .hero-btn:active {
-  transform: scale(.97);
+  transform: scale(0.97);
+}
+
+/* =========================
+   Premium Text Utilities
+========================= */
+
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #22d3ee, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-glow {
+  text-shadow:
+    0 0 20px rgba(34, 211, 238, 0.5),
+    0 0 40px rgba(34, 211, 238, 0.25);
+}
+
+.text-glow-sm {
+  text-shadow: 0 0 10px rgba(34, 211, 238, 0.4);
+}
+
+/* =========================
+   Glass Card
+========================= */
+
+.glass-card {
+  border: 1px solid rgba(34, 211, 238, 0.15);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.glass-card:hover {
+  border-color: rgba(34, 211, 238, 0.4);
+  box-shadow: 0 0 30px rgba(34, 211, 238, 0.15);
+}
+
+/* =========================
+   Scan Line Animation
+========================= */
+
+@keyframes scanLine {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(400%);
+  }
+}
+
+.scan-line {
+  position: absolute;
+  inset-inline: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(34, 211, 238, 0.6),
+    transparent
+  );
+  animation: scanLine 3s linear infinite;
+  pointer-events: none;
+}
+
+/* =========================
+   AI Status Indicator
+========================= */
+
+@keyframes statusPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22d3ee;
+  box-shadow: 0 0 8px #22d3ee;
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+/* =========================
+   Reduced Motion Support
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .glow {
+    animation: none;
+  }
+
+  .scan-line {
+    animation: none;
+    display: none;
+  }
+
+  .status-dot {
+    animation: none;
+  }
 }

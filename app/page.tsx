@@ -12,6 +12,8 @@ import Services from "@/components/Services";
 import Certificates from "@/components/Certificates";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import AssistantProvider from "@/components/assistant/AssistantProvider";
+import MiniAssistant from "@/components/assistant/MiniAssistant";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -21,10 +23,10 @@ export default function Home() {
   }
 
   return (
-    <>
+    <AssistantProvider>
       <Navbar />
 
-      <main className="overflow-x-hidden bg-[#020617] text-white">
+      <main className="overflow-x-hidden bg-[#020617] text-white relative">
         <Hero />
 
         <About />
@@ -40,7 +42,10 @@ export default function Home() {
         <Contact />
 
         <Footer />
+
+        {/* Third Robot — Mini AI Interactive Companion */}
+        <MiniAssistant />
       </main>
-    </>
+    </AssistantProvider>
   );
 }
