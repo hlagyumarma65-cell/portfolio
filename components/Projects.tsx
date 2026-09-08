@@ -1,9 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 import Image from "next/image";
-import { FaGithub, FaExternalLinkAlt, FaLockOpen, FaTerminal } from "react-icons/fa";
+import {
+  FaGithub,
+  FaExternalLinkAlt,
+  FaLockOpen,
+  FaTerminal,
+  FaGamepad,
+  FaBrain,
+} from "react-icons/fa";
 import {
   SiNextdotjs,
   SiReact,
@@ -12,33 +19,68 @@ import {
   SiJavascript,
   SiHtml5,
   SiCss,
+  SiPython,
+  SiOpencv,
+  SiNumpy,
 } from "react-icons/si";
 import { useAssistant } from "@/components/assistant/useAssistant";
 
 const projects = [
   {
+    title: "AI Face Analyzer",
+    badge: "AI Vision",
+    image: "/images/projects/face-analyzer.jpg",
+    fallbackIcon: "🤖",
+    description:
+      "Real-time AI computer vision system detecting faces, 468-point facial landmarks, pose estimation, emotion recognition, and age/gender prediction.",
+    github: "https://github.com/hlagyumarma65-cell/Real-Time-Face-Analyzer",
+    live: "#",
+    tech: [
+      { name: "Python", icon: SiPython },
+      { name: "OpenCV", icon: SiOpencv },
+      { name: "NumPy", icon: SiNumpy },
+      { name: "MediaPipe", icon: FaBrain },
+    ],
+  },
+  {
+    title: "Codexa — Play & Learn Code",
+    badge: "Edu-Gaming",
+    image: "/images/projects/codexa.png",
+    fallbackIcon: "🎮",
+    description:
+      "Interactive gamified learning platform that teaches programming and logic to students through engaging browser-based games, levels, and leaderboards.",
+    github: "https://github.com/hlagyumarma65-cell",
+    live: "#",
+    tech: [
+      { name: "JavaScript", icon: SiJavascript },
+      { name: "HTML5", icon: SiHtml5 },
+      { name: "CSS3", icon: SiCss },
+      { name: "Game Logic", icon: FaGamepad },
+    ],
+  },
+  {
     title: "Tongsa Cafe",
-    badge: "Featured",
+    badge: "Full Stack",
     image: "/images/projects/tongsa-cafe.png",
     fallbackIcon: "☕",
     description:
-      "Modern restaurant website built with Django featuring responsive design, interactive menu, and a premium customer experience.",
+      "Modern restaurant website built with Django featuring responsive design, dynamic menu filtering, and a premium customer ordering experience.",
     github: "https://github.com/hlagyumarma65-cell",
     live: "#",
     tech: [
       { name: "Django", icon: SiDjango },
+      { name: "Python", icon: SiPython },
       { name: "HTML", icon: SiHtml5 },
-      { name: "CSS", icon: SiCss },
       { name: "JavaScript", icon: SiJavascript },
     ],
   },
   {
     title: "AI Developer Portfolio",
-    badge: "Latest",
+    badge: "Next-Gen UI",
     image: "/images/projects/portfolio.png",
     fallbackIcon: "⚡",
     description:
-      "Futuristic AI-themed developer workspace portfolio built with Next.js 16, React 19, Motion, and Tailwind CSS.",
+      "Futuristic AI-themed developer workspace portfolio built with Next.js 16, React 19, Motion, and an interactive 3-robot assistant ecosystem.",
     github: "https://github.com/hlagyumarma65-cell",
     live: "#",
     tech: [
@@ -48,18 +90,18 @@ const projects = [
     ],
   },
   {
-    title: "Autonomous AI Workspace",
-    badge: "Next-Gen",
-    image: "/images/projects/coming-soon.jpg",
-    fallbackIcon: "🤖",
+    title: "Expense Tracker",
+    badge: "Finance Tracker",
+    image: "https://raw.githubusercontent.com/hlagyumarma65-cell/Expense---Tracker/main/assets/images/cover.jpg",
+    fallbackIcon: "💰",
     description:
-      "Next-generation AI agent integration and machine learning developer tooling currently under active development.",
-    github: "https://github.com/hlagyumarma65-cell",
-    live: "#",
+      "A modern financial management app featuring dynamic transaction tracking, real-time balance calculations, and glassmorphism styling.",
+    github: "https://github.com/hlagyumarma65-cell/Expense---Tracker",
+    live: "https://hlagyumarma65-cell.github.io/Expense---Tracker/",
     tech: [
-      { name: "Next.js", icon: SiNextdotjs },
-      { name: "React", icon: SiReact },
-      { name: "Python", icon: SiDjango },
+      { name: "HTML5", icon: SiHtml5 },
+      { name: "CSS3", icon: SiCss },
+      { name: "JavaScript", icon: SiJavascript },
     ],
   },
 ];
@@ -73,7 +115,7 @@ export default function Projects() {
     triggerAssistant("project-unlock", {
       title: "SECURITY CLEARANCE",
       status: `🔓 ACCESS GRANTED: ${title}`,
-      subtext: "Decryption complete • Source verified",
+      subtext: "Decryption complete • Project verified",
       variant: "cyan",
     });
   };
@@ -98,21 +140,21 @@ export default function Projects() {
             Featured <span className="text-cyan-400">Projects</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-gray-400 text-sm sm:text-base leading-relaxed">
-            High-performance web applications and systems engineered with precision, modern design, and clean architecture.
+            High-impact software engineering projects spanning Real-Time Computer Vision AI, Educational Gaming, and Full Stack Platforms.
           </p>
         </motion.div>
 
-        {/* Projects Grid */}
-        <div className="mt-16 grid gap-8 lg:grid-cols-3">
+        {/* Projects Grid (2 columns on tablet/desktop for generous showcase) */}
+        <div className="mt-16 grid gap-8 md:grid-cols-2">
           {projects.map((project, index) => {
             const isSelected = activeProject === project.title;
 
             return (
               <motion.div
                 key={project.title}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -8 }}
                 onClick={() => handleProjectInteraction(project.title)}
@@ -128,9 +170,9 @@ export default function Projects() {
 
                 <div>
                   {/* Image / Graphic Container */}
-                  <div className="relative h-60 w-full overflow-hidden bg-gradient-to-b from-[#0a1120] to-[#040813] flex items-center justify-center">
+                  <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-gradient-to-b from-[#0a1120] to-[#040813] flex items-center justify-center">
                     {/* Fallback Graphic */}
-                    <div className="absolute inset-0 flex flex-col items-center justify-center text-5xl text-cyan-400/30 group-hover:scale-110 group-hover:text-cyan-300/50 transition duration-700">
+                    <div className="absolute inset-0 flex flex-col items-center justify-center text-6xl text-cyan-400/30 group-hover:scale-110 group-hover:text-cyan-300/50 transition duration-700">
                       <span>{project.fallbackIcon}</span>
                       <span className="font-mono text-[10px] text-cyan-500/60 tracking-widest mt-2 uppercase">
                         SYSTEM // {project.badge}
@@ -142,10 +184,9 @@ export default function Projects() {
                       src={project.image}
                       alt={project.title}
                       fill
-                      sizes="(max-width: 1024px) 100vw, 33vw"
-                      className="object-cover transition duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover transition duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
                       onError={(e) => {
-                        // Keep fallback visible if image file is not found
                         const target = e.target as HTMLElement;
                         target.style.display = "none";
                       }}
@@ -158,7 +199,7 @@ export default function Projects() {
                     </div>
 
                     {/* Security Overlay indicator */}
-                    <div className="absolute right-5 top-5 rounded-full bg-black/60 px-3 py-1 text-[11px] font-mono text-cyan-300 border border-cyan-400/30 flex items-center gap-1.5">
+                    <div className="absolute right-5 top-5 rounded-full bg-black/70 px-3 py-1 text-[11px] font-mono text-cyan-300 border border-cyan-400/30 flex items-center gap-1.5 backdrop-blur-sm">
                       <FaLockOpen className="text-[10px] text-emerald-400" />
                       UNLOCKED
                     </div>
@@ -167,7 +208,7 @@ export default function Projects() {
                   </div>
 
                   {/* Content Area */}
-                  <div className="p-6">
+                  <div className="p-6 sm:p-8">
                     <h3 className="text-2xl font-bold tracking-tight text-white group-hover:text-cyan-300 transition">
                       {project.title}
                     </h3>
@@ -177,7 +218,7 @@ export default function Projects() {
                     </p>
 
                     {/* Tech Badges */}
-                    <div className="mt-5 flex flex-wrap gap-2">
+                    <div className="mt-6 flex flex-wrap gap-2">
                       {project.tech.map((item) => {
                         const Icon = item.icon;
                         return (
@@ -195,7 +236,7 @@ export default function Projects() {
                 </div>
 
                 {/* Card Action Buttons */}
-                <div className="p-6 pt-0 mt-4 flex gap-3">
+                <div className="p-6 sm:p-8 pt-0 mt-2 flex gap-3">
                   <motion.a
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.96 }}
@@ -205,7 +246,7 @@ export default function Projects() {
                     className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-cyan-400/30 bg-white/5 py-3 text-xs sm:text-sm font-semibold transition hover:bg-cyan-400 hover:text-black"
                   >
                     <FaGithub className="text-base" />
-                    Source
+                    Source Code
                   </motion.a>
 
                   <motion.a

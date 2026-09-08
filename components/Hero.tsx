@@ -145,7 +145,7 @@ export default function Hero() {
             <div className="mt-10 flex items-center gap-6 text-3xl">
 
               <motion.a
-                href="https://github.com/"
+                href="https://github.com/hlagyumarma65-cell"
                 target="_blank"
                 rel="noreferrer"
                 whileHover={{
