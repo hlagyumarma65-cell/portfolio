@@ -92,7 +92,7 @@ const projects = [
   {
     title: "Expense Tracker",
     badge: "Finance Tracker",
-    image: "https://raw.githubusercontent.com/hlagyumarma65-cell/Expense---Tracker/main/assets/images/cover.jpg",
+    image: "/images/projects/cover.jpg",
     fallbackIcon: "💰",
     description:
       "A modern financial management app featuring dynamic transaction tracking, real-time balance calculations, and glassmorphism styling.",
@@ -144,7 +144,7 @@ export default function Projects() {
           </p>
         </motion.div>
 
-        {/* Projects Grid (2 columns on tablet/desktop for generous showcase) */}
+        {/* Projects Grid */}
         <div className="mt-16 grid gap-8 md:grid-cols-2">
           {projects.map((project, index) => {
             const isSelected = activeProject === project.title;
