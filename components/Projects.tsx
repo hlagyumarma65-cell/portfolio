@@ -65,8 +65,8 @@ const projects = [
     fallbackIcon: "☕",
     description:
       "Modern restaurant website built with Django featuring responsive design, dynamic menu filtering, and a premium customer ordering experience.",
-    github: "https://github.com/hlagyumarma65-cell/Tongsa-Cafe-",
-    live: "https://github.com/hlagyumarma65-cell/Tongsa-Cafe-",
+    github: "https://github.com/hlagyumarma65-cell/Tongsa-cafe",
+    live: "https://github.com/hlagyumarma65-cell/Tongsa-cafe",
     tech: [
       { name: "Django", icon: SiDjango },
       { name: "Python", icon: SiPython },
