@@ -61,7 +61,7 @@ const projects = [
   {
     title: "Tongsa Cafe",
     badge: "Full Stack",
-    image: "/images/projects/tongsa-cafe.png",
+   image: "/images/projects/cafe.jpg",
     fallbackIcon: "☕",
     description:
       "Modern restaurant website built with Django featuring responsive design, dynamic menu filtering, and a premium customer ordering experience.",
