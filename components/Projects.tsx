@@ -184,6 +184,7 @@ export default function Projects() {
                       src={project.image}
                       alt={project.title}
                       fill
+                      
                       sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover transition duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
                       onError={(e) => {
