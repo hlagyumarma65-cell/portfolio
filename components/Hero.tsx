@@ -2,7 +2,6 @@
 
 import { motion } from "motion/react";
 import { TypeAnimation } from "react-type-animation";
-import Image from "next/image";
 
 import {
   FaArrowRight,
