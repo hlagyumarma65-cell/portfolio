@@ -92,7 +92,7 @@ const projects = [
   {
     title: "Expense Tracker",
     badge: "Finance Tracker",
-    image: "/images/projects/cover.jpg",
+    image: "https://raw.githubusercontent.com/hlagyumarma65-cell/Expense---Tracker/main/assets/images/cover.jpg",
     fallbackIcon: "💰",
     description:
       "A modern financial management app featuring dynamic transaction tracking, real-time balance calculations, and glassmorphism styling.",
